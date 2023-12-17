@@ -9,19 +9,21 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
+import { FaShoppingCart } from 'react-icons/fa';
 
-const pages = ['Home', 'Hampers', 'Lyvivo Products', 'Lyvivo Exclusives', 'All Products'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = [
+  'Home',
+  'Hampers',
+  'Lyvivo Products',
+  'Lyvivo Exclusives',
+  'All Products',
+];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
+  const handleOpenCart = (event) => {
     setAnchorElUser(event.currentTarget);
   };
 
@@ -29,20 +31,21 @@ function ResponsiveAppBar() {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
-    <AppBar position="sticky" className='bg-[var(--navbar)] px-[var(--defaultPadding)]'>
-      <Container maxWidth="xl" className='px-0'>
+    <AppBar
+      position='sticky'
+      sx={{
+        backgroundColor: 'var(--navbar)',
+        paddingX: 'var(--defaultPadding)',
+      }}
+    >
+      <Container maxWidth='xl' className='px-0'>
         <Toolbar disableGutters>
-         
           <Typography
-            variant="h4"
+            variant='h4'
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+            component='a'
+            href='/'
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -56,103 +59,46 @@ function ResponsiveAppBar() {
             Lyvivo
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-
-              className='flex justify-center'
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu} >
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+          <Box
             sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
+              display: { xs: 'none', md: 'flex' },
+              justifyContent: 'center',
+              gap: 2,
             }}
           >
-            LOGO
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{
+                  my: 2,
+                  color: 'white',
+                  display: 'block',
+                  ':hover': {
+                    backgroundColor: 'red',
+                  }
+                }}
               >
                 {page}
               </Button>
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+          <Box sx={{ flexGrow: 0, paddingX: '16px', margin: 'auto' }}>
+            <Tooltip title='Cart' className='relative'>
+              <IconButton onClick={handleOpenCart} sx={{ p: 0 }}>
+                <FaShoppingCart className='text-white' />
+                <div className='text-xs text-white rounded-full bg-green-500 px-3 py-1 aspect-square absolute top-2 bottom-0 right-0 left-3'>
+                  <p
+                    className='flex justify-center
+                 '
+                  >
+                    0
+                  </p>
+                </div>
               </IconButton>
             </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
         </Toolbar>
       </Container>
