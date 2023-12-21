@@ -37,6 +37,8 @@ function ResponsiveAppBar() {
       sx={{
         backgroundColor: 'var(--navbar)',
         paddingX: 'var(--defaultPadding)',
+        paddingBottom: '2.5rem',
+        zIndex: '0',
       }}
     >
       <Container maxWidth='xl' className='px-0'>
@@ -76,7 +78,7 @@ function ResponsiveAppBar() {
                   color: 'white',
                   display: 'block',
                   ':hover': {
-                    backgroundColor: 'red',
+                    color: '#dddddd',
                   }
                 }}
               >
@@ -91,8 +93,7 @@ function ResponsiveAppBar() {
                 <FaShoppingCart className='text-white' />
                 <div className='text-xs text-white rounded-full bg-green-500 px-3 py-1 aspect-square absolute top-2 bottom-0 right-0 left-3'>
                   <p
-                    className='flex justify-center
-                 '
+                    className='flex justify-center'
                   >
                     0
                   </p>
