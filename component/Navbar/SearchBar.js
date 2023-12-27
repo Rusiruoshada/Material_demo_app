@@ -1,4 +1,4 @@
-import { Divider, IconButton, InputBase, Paper, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
 import React from 'react';
 
 const SearchBar = () => {
