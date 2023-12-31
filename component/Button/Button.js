@@ -7,7 +7,12 @@ export default function ButtonField(props) {
         variant={props.variant} 
         endIcon={props.icon}  
         type={props.type}
-        size='large'
+        size={props.size}
+        sx={{
+          borderRadius: [props.borderRadius],       
+        }}
+        
+        
     >
         {props.textField}
     </Button>
