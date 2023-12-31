@@ -5,8 +5,11 @@ import { IoSearch } from 'react-icons/io5';
 
 const SearchBar = () => {
   return (
-    <div className='flex '>
-        <div className='relative flex justify-center'>
+    <div className='grid grid-cols-5 px-[var(--defaultPadding)] absolute top-28 w-full '>
+        <div>
+            
+        </div>
+        <div className='relative grid col-span-4'>
             <TextField
                 id='outline-search'
                 type='search'
@@ -14,23 +17,20 @@ const SearchBar = () => {
                 console.log(event.target.value);
                 }}
                 sx={{
-                width: '55%',
-                position: 'absolute',
-                top: '-45px',
-                bottom: 'auto',
-                right: 'auto',
-                left: 'auto',
+                width: '100%',
                 backgroundColor: 'white',
                 }}
                 size='normal'
             />
         </div>
-        <ButtonField 
-            textField='Search' 
-            variant='contained' 
-            icon= <IoSearch />
+        <div className='grid'>
+            <ButtonField 
+                textField='Search' 
+                variant='contained' 
+                icon= <IoSearch />
 
-        />
+            />
+        </div>
     </div>
   );
 };
