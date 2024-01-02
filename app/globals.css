@@ -13,6 +13,8 @@
   --textWhite: #fff;
   --defaultPadding: 8rem;
   --paddingUpperNav: 8rem;
+  --defaultPaddingMd: 4rem;
+  --defaultPaddingSm: 0.5rem
 }
 
 @media (prefers-color-scheme: dark) {
