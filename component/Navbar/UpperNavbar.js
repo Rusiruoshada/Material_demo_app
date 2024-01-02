@@ -3,11 +3,12 @@ import { LuLogIn } from "react-icons/lu";
 import { IoLocationSharp } from "react-icons/io5";
 import { TbTruckDelivery } from "react-icons/tb";
 import { PiSignInBold } from "react-icons/pi";
+import { Box } from '@mui/material';
 
 
 export default function UpperNavbar() {
   return (
-    <div className='bg-[var(--primaryDark)] default-header-top-bar text-[var(--textWhite)] py-2 px-[var(--paddingUpperNav)]'>
+    <Box sx={{ display: { xs: 'none', md: 'block' },}} className='bg-[var(--primaryDark)] default-header-top-bar text-[var(--textWhite)] py-2 lg:px-[var(--paddingUpperNav)] px-[var(--defaultPaddingSm)] md:px-[var(--defaultPaddingMd)] '>
         <div className="flex flex-col">
             <div className='flex flex-row justify-end gap-3'>
                 <div className="nav-item flex flex-row items-center	">
@@ -31,6 +32,6 @@ export default function UpperNavbar() {
                 </div>
             </div>
         </div>
-    </div>
+    </Box>
   )
 }
