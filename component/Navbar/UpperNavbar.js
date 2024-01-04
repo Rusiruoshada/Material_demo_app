@@ -16,6 +16,7 @@ export default function UpperNavbar() {
 
   return (
     <Box
+        position={'sticky'}
       sx={{ display: { xs: 'none', md: 'block' } }}
       className='bg-[var(--primaryDark)] default-header-top-bar text-[var(--textWhite)] py-2 lg:px-[var(--paddingUpperNav)] px-[var(--defaultPaddingSm)] md:px-[var(--defaultPaddingMd)]'
     >
