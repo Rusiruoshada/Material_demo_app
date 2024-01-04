@@ -126,7 +126,7 @@ function ResponsiveAppBar() {
             <IconButton sx={{ color: 'white' }} onClick={handleOpenAvatar}>
               <RxAvatar />
             </IconButton>
-            
+
             <Menu
               sx={{ mt: {md:'45px', xs: '4rem'}, backgroundColor: {xs: '#00000099', sm: 'transparent'}}}
               id='menu-appbar'
