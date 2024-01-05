@@ -39,12 +39,16 @@ function ResponsiveAppBar() {
 
   return (
     <AppBar
-      position='sticky'
+      position='fixed'
       sx={{
         backgroundColor: 'var(--navbar)',
         paddingX: 'var(--defaultPadding)',
         paddingBottom: '2.5rem',
         zIndex: '0',
+        top: '40px',
+        left: 'auto',
+        right: 'auto',
+        bottom: 'auto'
       }}
       className='px-[var(--defaultPaddingSm)] md:px-[var(--defaultPaddingMd)] lg:px-[var(--defaultPadding)]'
     >
