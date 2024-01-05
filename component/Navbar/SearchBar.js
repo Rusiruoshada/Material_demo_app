@@ -5,7 +5,7 @@ import { IoSearch } from 'react-icons/io5';
 
 const SearchBar = () => {
   return (
-    <div className='grid grid-cols-5 px-[var(--defaultPaddingSm)] md:px-[var(--defaultPaddingMd)] lg:px-[var(--defaultPadding)] fixed top-20 md:top-20 lg:top-22 w-full '>
+    <div className='grid grid-cols-5 px-[var(--defaultPaddingSm)] md:px-[var(--defaultPaddingMd)] lg:px-[var(--defaultPadding)] fixed top-20 md:top-20 lg:top-32 w-full '>
         <div className='relative grid col-span-4'>
             <TextField
                 id='outline-search'
