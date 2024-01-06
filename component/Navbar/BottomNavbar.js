@@ -111,13 +111,15 @@ function ResponsiveAppBar() {
             <Tooltip title='Cart' className='relative'>
               <IconButton onClick={handleOpenCart} sx={{ p: 0 }}>
                 <FaShoppingCart className='text-white' />
+
                 <div className='text-xs text-white rounded-full bg-green-500 px-3 py-1 aspect-square absolute top-2 bottom-0 right-0 left-3'>
+
                   <p className='flex justify-center'>0</p>
                 </div>
               </IconButton>
             </Tooltip>
           </Box>
-
+          
           <Box
             sx={{
               flexGrow: 0,
