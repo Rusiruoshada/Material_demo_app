@@ -45,28 +45,4 @@ export default function UpperNavbar() {
   );
 }
 
-{
-  /* <div className="flex flex-col">
-            <div className='flex flex-row justify-end gap-3'>
-                <div className="nav-item flex flex-row items-center	">
-                    <LuLogIn />
-                    <span className='text-xs px-1 '>Track Your Order</span>
-                    <span className='px-1'>|</span>
-                </div>
-                <div className="nav-item flex flex-row items-center	">
-                    <IoLocationSharp />
-                    <span className='text-xs px-1 '>Store Location</span>
-                    <span className='px-1'>|</span>
-                </div>
-                <div className="nav-item flex flex-row items-center	">
-                    <TbTruckDelivery />
-                    <span className='text-xs px-1 '>Shipping Method</span>
-                    <span className='px-1'>|</span>
-                </div>
-                <div className="nav-item flex flex-row items-center	">
-                    <PiSignInBold />
-                    <span className='text-xs px-1 '>SignUp | LogIn</span>
-                </div>
-            </div>
-        </div> */
-}
+
