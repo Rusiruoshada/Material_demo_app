@@ -11,6 +11,8 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { IoMenu } from 'react-icons/io5';
 import { RxAvatar } from 'react-icons/rx';
 import { Menu, MenuItem } from '@mui/material';
+import Cart from '../Cart/Cart'
+
 
 const pages = [
   'Home',
@@ -19,6 +21,13 @@ const pages = [
   'Lyvivo Exclusives',
   'All Products',
 ];
+
+const upperNavbarLinks = [
+  'Track Your Order',
+'Store Location',
+'Shipping Method',
+'SignUp | LogIn',
+]
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(false);
@@ -50,7 +59,7 @@ function ResponsiveAppBar() {
         right: 'auto',
         bottom: 'auto'
       }}
-      className='px-[var(--defaultPaddingSm)] md:px-[var(--defaultPaddingMd)] lg:px-[var(--defaultPadding)]'
+      className='px-[var(--defaultPaddingSm)] md:px-[var(--defaultPaddingMd)] lg:px-[var(--defaultPadding)] top-0 lg:top-[40px] sm:top-0 md:top-0'
     >
       <Container maxWidth='xl' className='px-0'>
         <Toolbar disableGutters>
@@ -100,25 +109,27 @@ function ResponsiveAppBar() {
             ))}
           </Box>
 
-          <Box
-            sx={{
-              flexGrow: { md: 0, xs: 1 },
-              paddingX: '16px',
-              display: 'flex',
-              justifyContent: 'end',
-            }}
-          >
-            <Tooltip title='Cart' className='relative'>
-              <IconButton onClick={handleOpenCart} sx={{ p: 0 }}>
-                <FaShoppingCart className='text-white' />
+          <Cart>
+            <Box
+              sx={{
+                flexGrow: { md: 0, xs: 1 },
+                paddingX: '16px',
+                display: 'flex',
+                justifyContent: 'end',
+              }}
+            >
+              <Tooltip title='Cart' className='relative'>
+                  <IconButton onClick={handleOpenCart} sx={{ p: 0 }}>
+                    <FaShoppingCart className='text-white' />
 
-                <div className='text-xs text-white rounded-full bg-green-500 px-3 py-1 aspect-square absolute top-2 bottom-0 right-0 left-3'>
+                    <div className='text-xs text-white rounded-full bg-green-500 px-3 py-1 aspect-square absolute top-2 bottom-0 right-0 left-3'>
 
-                  <p className='flex justify-center'>0</p>
-                </div>
-              </IconButton>
-            </Tooltip>
-          </Box>
+                      <p className='flex justify-center'>0</p>
+                    </div>
+                  </IconButton>
+              </Tooltip>
+            </Box>
+          </Cart>
           
           <Box
             sx={{
@@ -149,7 +160,7 @@ function ResponsiveAppBar() {
               open={Boolean(avatarNav)}
               onClose={handleOpenAvatar}
             >
-              {pages.map((page, index) => (
+              {upperNavbarLinks.map((page, index) => (
                 <MenuItem key={index} onClick={() => {}} sx={{display: 'flex', justifyContent: 'end'}}>  
                   <Typography textAlign='end'>     
                     {page}
