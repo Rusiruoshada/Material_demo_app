@@ -5,7 +5,7 @@ import Carousel from '../component/CarouselImage/Carousel';
 export default function Home() {
   return (
     <>
-      <header className='lg:mt-[149px] mt-[100px]'>
+      <header className='lg:mt-[149px] mt-[90px] md:mt-[100px]'>
         <Carousel />
       </header>
     </>
