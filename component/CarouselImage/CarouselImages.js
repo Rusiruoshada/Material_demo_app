@@ -23,14 +23,14 @@ export default function CarouselImages({ children, autoSlide=false, autoSlideInt
 
 
   return (
-    <div className='overflow-hidden relative'>
+    <div className='overflow-hidden relative '>
       <div
-        className='flex transition-transform ease-out  duration-500 justify-start'
+        className='flex transition-transform ease-out  duration-500 '
         style={{ transform: `translateX(-${curr * 100}%)` }}
       >
         {children}
       </div>
-      <div className='absolute inset-0 flex items-center justify-between p-4'>
+      <div className='absolute inset-0 flex items-center justify-between p-10'>
         <Button
           onClick={prev}
           textField={<IoIosArrowBack />}
@@ -38,15 +38,19 @@ export default function CarouselImages({ children, autoSlide=false, autoSlideInt
           type='button'
           size='large'
           color='#000'
+          padding='10px'
+          minWidth = '10px'
           classNames='bg-slate-50/[.5] rounded-full text-gray-80 shadow hover:bg-white'
         />
         <Button
           onClick={next}
-          textField={<IoIosArrowBack className='rotate-180' />}
+          textField={<IoIosArrowBack className='rotate-180 ' />}
           variant='contained'
           type='button'
           size='large'
           color='#000'
+          padding='10px'
+          minWidth = '10px'
           classNames='bg-slate-50/[.5] rounded-full text-gray-80 shadow hover:bg-white'
         />
       </div>
