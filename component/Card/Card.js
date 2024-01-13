@@ -7,38 +7,40 @@ import CardMedia from '@mui/material/CardMedia';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { IoIosArrowBack } from 'react-icons/io';
+import { MdDelete } from "react-icons/md";
 
-export default function MediaControlCard() {
+export default function MediaControlCard(props) {
 
   return (
-    <Card sx={{ display: 'flex', width:'95%' }}>
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <CardContent sx={{ flex: '1 0 auto' }}>
-          <Typography component="div" variant="h5">
-            Live From Space
+    <Card sx={{ display: 'grid', width:'95%',marginX:'auto', marginY: '10px', boxShadow:'0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19)' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+      <CardMedia
+        component="img"
+        sx={{ width: 90 ,display:'flex', padding:'5px',marginX:'5px',aspectRatio:1, borderRadius:'8px' }}
+        image={props.itemImage}
+        alt={props.itemName}
+      />
+        <CardContent sx={{ flex: '1 0 auto',padding:'0 8px',marginY:'auto' }}>
+          <Typography component="div" variant="body1">
+            {props.itemName}
           </Typography>
-          <Typography variant="subtitle1" color="text.secondary" component="div">
-            Mac Miller
+          <Typography variant="p" color="text.secondary" component="div" sx={{fontSize:'14px'}}>
+            {props.itemDescription}
           </Typography>
         </CardContent>
-        <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', pl: 0, pb: 0 }}>
           <IconButton aria-label="previous">
             {'rtl' === 'rtl' ? <IoIosArrowBack /> : <IoIosArrowBack />}
           </IconButton>
           <IconButton aria-label="play/pause">
             <IoIosArrowBack sx={{ height: 38, width: 38 }} />
           </IconButton>
-          <IconButton aria-label="next">
-            {'rtl' === 'rtl' ? <IoIosArrowBack /> : <IoIosArrowBack />}
+          <IconButton aria-label="delete">
+            <MdDelete className='cursor-pointer' /> 
           </IconButton>
         </Box>
       </Box>
-      <CardMedia
-        component="img"
-        sx={{ width: 151 }}
-        image="/static/images/cards/live-from-space.jpg"
-        alt="Live from space album cover"
-      />
+      
     </Card>
   );
 }
