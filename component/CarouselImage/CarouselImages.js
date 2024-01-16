@@ -60,7 +60,9 @@ export default function CarouselImages({ children, autoSlide=false, autoSlideInt
             {children.map((_, indicator)=> (
                 <div 
                     key={indicator} 
-                    className={`transition-all ease-out  w-5 h-2 bg-white rounded-full ${curr === indicator? "p-1": 'bg-opacity-50'}`} />
+                    className={`transition-all ease-out  w-5 h-2 bg-white rounded-full ${curr === indicator? "p-1": 'bg-opacity-50'}`}
+                    onClick={next}
+                 />
             ))}
         </div>
 
