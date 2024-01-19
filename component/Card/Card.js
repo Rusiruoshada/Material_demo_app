@@ -32,16 +32,21 @@ export default function MediaControlCard(props) {
         setPrice(priceDecrease)
     };
 
+    const handleDeleteItem = ()=> {
+        props.onClicks(props.id)
+    }
+
   return (
     <Card sx={{ display: 'grid', width:'95%',marginX:'auto', marginY: '10px', boxShadow:'0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19)' }}>
       <Box sx={{ display: 'flex', flexDirection: 'row' }}>
       <CardMedia
         component="img"
-        sx={{ width: 90 ,display:'flex', padding:'5px',marginX:'5px',aspectRatio:1, borderRadius:'8px' }}
+        sx={{ width: 70 ,display:'flex', padding:'3px',marginX:'2px',aspectRatio:1, borderRadius:'10px' }}
         image={props.itemImage}
         alt={props.itemName}
+        
       />
-        <CardContent sx={{ flex: '1 0 auto',padding:{md:'0 8px',sm:'5px', xl:'3px'},marginY:'auto' }}>
+        <CardContent sx={{ flex: '1 0 auto', paddingY:0 ,marginY:'auto'}} className='px-0 md:px-4 lg:px-5'>
           <Typography component="div" variant="body1">
             {props.itemName}
           </Typography>
@@ -50,7 +55,7 @@ export default function MediaControlCard(props) {
           </Typography>
         </CardContent>
 
-        <Box sx={{ display: 'flex', alignItems: 'center', px: 2, pb: 0 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', px: {sm:0 , md:2}, pb: 0 }}>
           <IconButton aria-label="decrease">
              <FiMinus className='text-[16px] ' onClick={handleCountDecrease}/>
           </IconButton>
@@ -67,7 +72,8 @@ export default function MediaControlCard(props) {
           <Typography variant="body1" color="text.secondary" component="div" fontWeight={700} sx={{fontSize:'14px',marginY:'auto'}}>
             Rs.{price}
           </Typography>
-          <IconButton aria-label="delete">
+
+          <IconButton aria-label="delete" onClick={handleDeleteItem}>
             <MdDelete className='cursor-pointer' /> 
           </IconButton>
       </Box>
