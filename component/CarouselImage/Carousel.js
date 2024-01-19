@@ -45,8 +45,8 @@ export default function Carousel() {
               alt={image.label}
               width={'-webkit-fill-available'}
               height={'auto'}
-              className='md:h-screen md:w-screen  sm:h-full sm:w-full '
-              
+              className='lg:h-screen md:h-[75vh] md:w-screen  sm:h-[70vh] h-full sm:w-full '
+              priority={true}
             />
           ))}
         </CarouselImages>
