@@ -1,39 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Typography, Divider } from '@mui/material';
 import { IoIosArrowBack } from 'react-icons/io';
 import Card from '../Card/Card';
 
+
 const List = ({ anchor, toggleDrawer }) => {
+
+  
   let cartItems = [
     {
+      id:1,
       itemName: 'Ice cream',
-      itemImage: '../public/1 (1).jpg',
+      itemImage: '/1 (1).jpg',
       itemDescription: '500ml',
       itemPrice: 800,
     },
     {
+      id:2,
       itemName: 'Ice cream',
-      itemImage: '../public/1 (1).jpg',
+      itemImage: '/1 (2).jpg',
       itemDescription: '500ml',
       itemPrice: 800,
     },
     {
+      id:3,
       itemName: 'Ice cream',
-      itemImage: '../public/1 (1).jpg',
+      itemImage:'/1 (3).jpg',
       itemDescription: '500ml',
       itemPrice: 800,
     },
     {
+      id:4,
       itemName: 'Ice cream',
-      itemImage: '../public/1 (1).jpg',
+      itemImage: '/1 (1).jpg',
       itemDescription: '500ml',
       itemPrice: 800,
     },
   ];
+  
+  const [items, setItems] = useState(cartItems)
+
+  const deleteCartItem = (id) => {
+    console.log(id);
+    const remainItems = items.filter(item => {
+      return item.id !== id
+  });
+  setItems(remainItems)
+  }
 
   return (
     <Box
-      sx={{ width: {lg:450, sm:370, md:400 ,xs:320} }}
+      sx={{ width: {lg:450, sm:370, md:430 ,xs:320} }}
       role='presentation'
       onKeyDown={toggleDrawer(anchor, false)}
     >
@@ -51,18 +68,26 @@ const List = ({ anchor, toggleDrawer }) => {
       <Divider
         sx={{ width: '90%', justifyContent: 'center', marginX: 'auto' }}
       />
-      <div className='snap-y scroll-smooth overflow-scroll h-[20rem]'>
-        {cartItems.map(card => (
+      <div className='overflow-scroll '>
+        {items.map(card => (
           <Card
-            key={card.itemName}
+            key={card.id}
             itemName={card.itemName}
             itemImage={card.itemImage}
             itemDescription={card.itemDescription}
             itemPrice={card.itemPrice}
+            id={card.id}
+            onClicks={deleteCartItem}
           />
         ))}
-        
       </div>
+          <Box>
+              <Divider sx={{width:'90%', justifyContent:' center', marginX:'auto'}} />
+              
+
+          </Box>
+
+
     </Box>
   );
 };
