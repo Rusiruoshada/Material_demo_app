@@ -17,7 +17,6 @@ export default function MediaControlCard(props) {
 
 
     let countNum = count;
-    
 
     const handleCountIncrease =()=> {
         countNum += 1;
@@ -36,8 +35,9 @@ export default function MediaControlCard(props) {
         props.onClicks(props.id)
     }
 
+
   return (
-    <Card sx={{ display: 'grid', width:'95%',marginX:'auto', marginY: '10px', boxShadow:'0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19)' }}>
+    <Card sx={{ display: 'grid', width:'95%',marginX:'auto', marginY: '10px', boxShadow:'0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19)' }} >
       <Box sx={{ display: 'flex', flexDirection: 'row' }}>
       <CardMedia
         component="img"
@@ -73,8 +73,8 @@ export default function MediaControlCard(props) {
             Rs.{price}
           </Typography>
 
-          <IconButton aria-label="delete" onClick={handleDeleteItem}>
-            <MdDelete className='cursor-pointer' /> 
+          <IconButton aria-label="delete" >
+            <MdDelete className='cursor-pointer' onClick={handleDeleteItem}/> 
           </IconButton>
       </Box>
       
