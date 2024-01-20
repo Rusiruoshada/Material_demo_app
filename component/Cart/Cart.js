@@ -1,14 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
 import List from '../Cart/CartContent';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import { MdOutlineWorkOutline } from 'react-icons/md';
 import { Badge, IconButton, Tooltip, Typography, } from '@mui/material';
 import { FaShoppingCart } from 'react-icons/fa';
 
@@ -19,13 +12,6 @@ export default function TemporaryDrawer() {
   });
 
   const toggleDrawer = (anchor, open) => (event) => {
-    if (
-      event.type === 'keydown' &&
-      (event.key === 'Tab' || event.key === 'Shift')
-    ) {
-      return;
-    }
-
     setState({ ...state, [anchor]: open });
   };
 
