@@ -38,7 +38,9 @@ const List = ({ anchor, toggleDrawer }) => {
     },
   ];
 
-  const checkout = [{name:'Subtotal',value:4000},{name: 'Tax', value : 400 }]
+  const checkout = [{name:'Subtotal',value:4000},{name: 'Tax', value : 400 }];
+
+  const total = {name:'Total',value: [checkout[0].value+ checkout[1].value]}
   
   const [items, setItems] = useState(cartItems)
 
@@ -88,7 +90,7 @@ const List = ({ anchor, toggleDrawer }) => {
 
               <div className='my-2 mx-4 '>
                 <div className='flex col-auto justify-between'>
-                <Typography fontWeight={500}>
+                <Typography fontWeight={450}>
                   {checkout[0].name} :
                 </Typography>
                 <Typography>
@@ -97,7 +99,7 @@ const List = ({ anchor, toggleDrawer }) => {
                 </div>
 
                 <div className='flex col-auto justify-between'>
-                <Typography fontWeight={500} color={'gray'}>
+                <Typography fontWeight={400} color={'gray'}>
                   {checkout[1].name} :
                 </Typography>
                 <Typography color={'gray'}>
@@ -106,11 +108,22 @@ const List = ({ anchor, toggleDrawer }) => {
                 </div>
               </div>
 
-              
+              <Divider sx={{width:'90%', justifyContent:' center', marginX:'auto',marginY:'4px'}} />
+
+              <div className='my-2 mx-4 '>
+                <div className='flex col-auto justify-between'>
+                <Typography fontWeight={550}>
+                  {total.name} :
+                </Typography>
+                <Typography fontWeight={550}>
+                  $ {total.value}
+                </Typography>
+                </div>
+              </div>
+
+
 
           </Box>
-
-
     </Box>
   );
 };
