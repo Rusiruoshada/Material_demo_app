@@ -67,7 +67,7 @@ const List = ({ anchor, toggleDrawer }) => {
       onKeyDown={toggleDrawer(anchor, false)}
       
     >
-      <div>
+      <div className='sticky top-0 bg-white z-10'>
         <Typography
           textAlign='start'
           variant='h5'
