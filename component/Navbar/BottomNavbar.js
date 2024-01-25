@@ -30,6 +30,7 @@ const upperNavbarLinks = [
 ]
 
 function ResponsiveAppBar() {
+
   const [anchorElNav, setAnchorElNav] = React.useState(false);
   const [avatarNav, setAvatarNav] = React.useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -38,7 +39,7 @@ function ResponsiveAppBar() {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleOpenAvatar = (event) => {
+  const handleOpenAvatar = () => {
     setAvatarNav(!avatarNav);
   }
 
@@ -63,6 +64,7 @@ function ResponsiveAppBar() {
     >
       <Container maxWidth='xl' className='px-0'>
         <Toolbar disableGutters>
+          
           <Typography
             variant='h4'
             noWrap
@@ -77,134 +79,121 @@ function ResponsiveAppBar() {
               color: 'inherit',
               textDecoration: 'none',
             }}
+            className='sm:text-[26px] text-[26px] md:text-[2.2rem]'
           >
             Lyvivo
           </Typography>
-
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: 'none', md: 'flex' },
-              justifyContent: 'center',
-              gap: 1,
-            }}
-            className='lg:gap-1'
-          >
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={() => {}} // add page routes for this
-                sx={{
-                  my: 2,
-                  color: 'white',
-                  display: 'block',
-                  textTransform: 'capitalize',
-                  ':hover': {
-                    color: '#dddddd',
-                  },
-                }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
-
-          <Cart>
-            <Box
-              sx={{
-                flexGrow: { md: 0, xs: 1 },
-                paddingX: '16px',
+          <Box sx={{
+                flexGrow: 1,
                 display: 'flex',
                 justifyContent: 'end',
+                gap: 1,
+              }} >
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: { xs: 'none', md: 'flex' },
+                justifyContent: 'center',
+                gap: 1,
               }}
+              className='lg:gap-1'
             >
-              <Tooltip title='Cart' className='relative'>
-                  <IconButton onClick={handleOpenCart} sx={{ p: 0 }}>
-                    <FaShoppingCart className='text-white' />
-
-                    <div className='text-xs text-white rounded-full bg-green-500 px-3 py-1 aspect-square absolute top-2 bottom-0 right-0 left-3'>
-
-                      <p className='flex justify-center'>0</p>
-                    </div>
-                  </IconButton>
-              </Tooltip>
+              {pages.map((page) => (
+                <Button
+                  key={page}
+                  onClick={() => {}} // add page routes for this
+                  sx={{
+                    my: 2,
+                    color: 'white',
+                    display: 'block',
+                    textTransform: 'capitalize',
+                    ':hover': {
+                      color: '#dddddd',
+                    },
+                  }}
+                >
+                  {page}
+                </Button>
+              ))}
             </Box>
-          </Cart>
-          
-          <Box
-            sx={{
-              flexGrow: 0,
-              display: { xs: 'flex', md: 'none' },
-              justifyContent: 'end',
-              marginX: '12px',
-              fontSize: '24px',
-            }}
-          >
-            <IconButton sx={{ color: 'white' }} onClick={handleOpenAvatar}>
-              <RxAvatar />
-            </IconButton>
 
-            <Menu
-              sx={{ mt: {md:'45px', xs: '4rem'}, backgroundColor: {xs: '#00000099', sm: 'transparent'}}}
-              id='menu-appbar'
-              anchorEl={avatarNav}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+            <Cart />
+            
+            <Box
+              sx={{
+                flexGrow: 0,
+                display: { xs: 'flex', md: 'none' },
+                justifyContent: 'end',
+                marginX: '12px',
+                fontSize: '24px',
               }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(avatarNav)}
-              onClose={handleOpenAvatar}
             >
-              {upperNavbarLinks.map((page, index) => (
-                <MenuItem key={index} onClick={() => {}} sx={{display: 'flex', justifyContent: 'end'}}>  
-                  <Typography textAlign='end'>     
-                    {page}
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+              <IconButton sx={{ color: 'white' }} onClick={handleOpenAvatar}>
+                <RxAvatar />
+              </IconButton>
 
-          <Box
-            sx={{
-              flexGrow: 0,
-              display: { xs: 'flex', md: 'none' },
-              justifyContent: 'end',
-              fontSize: '24px',
-            }}
-          >
-            <IconButton sx={{ color: 'white' }} onClick={handleOpenNavMenu}>
-              <IoMenu />
-            </IconButton>
-            <Menu
-              sx={{ mt: {md:'45px', xs: '4rem'}, backgroundColor: {xs: '#00000099', sm: 'transparent'}}}
-              id='menu-appbar'
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+              <Menu
+                sx={{ mt: -5, backgroundColor: {xs: '#00000099', sm: 'transparent'}}}
+                id='menu-appbar'
+                anchorEl={avatarNav}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(avatarNav)}
+                onClose={handleOpenAvatar}
+              >
+                {upperNavbarLinks.map((page, index) => (
+                  <MenuItem key={index} onClick={() => {}} sx={{display: 'flex', justifyContent: 'start'}}>  
+                    <Typography textAlign='start'>     
+                      {page}
+                    </Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+
+            <Box
+              sx={{
+                flexGrow: 0,
+                display: { xs: 'flex', md: 'none' },
+                justifyContent: 'end',
+                fontSize: '24px',
               }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleOpenNavMenu}
             >
-              {pages.map((page, index) => (
-                <MenuItem key={index} onClick={() => {}} sx={{display: 'flex', justifyContent: 'end'}}>  
-                  <Typography textAlign='end'>     
-                    {page}
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+              <IconButton sx={{ color: 'white' }} onClick={handleOpenNavMenu}>
+                <IoMenu />
+              </IconButton>
+              <Menu
+                sx={{mt: -5, backgroundColor: {xs: '#00000099', sm: 'transparent'}}}
+                id='menu-appbar'
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleOpenNavMenu}
+              >
+                {pages.map((page, index) => (
+                  <MenuItem key={index} onClick={() => {}} sx={{display: 'flex', justifyContent: 'start'}}>  
+                    <Typography textAlign='start'>     
+                      {page}
+                    </Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
           </Box>
         </Toolbar>
       </Container>
