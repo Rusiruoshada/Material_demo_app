@@ -2,8 +2,7 @@ import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import Image from 'next/image';
-import slide1 from '../../public/BannerSection1A.jpg';
-import slide2 from '../../public/BannerSection2A .jpg';
+
 
 
 
@@ -18,15 +17,16 @@ function srcset(image: string, size: number, rows = 1, cols = 1) {
   };
 }
 
-export default function Banner() {
+
+export default function Banner(props:any) {
   return (
     <ImageList
-      sx={{ width: '100%', height: 200, gap:0 }}
+      sx={{ width: '100%', height: 200, columns:{xs:1,sm:1,md:2,lg:2}}}
       variant="quilted"
-      cols={2}
       rowHeight={'auto'}
+      gap={0}
     >
-      {itemData.map((item) => (
+      {props.bannerImages.map((item:any) => (
         <ImageListItem key={item.title} cols={item?.cols || 1} rows={item?.rows || 1}>
           <Image
             // {...srcset(item.img, 121, item.rows, item.cols)}
@@ -41,17 +41,4 @@ export default function Banner() {
   );
 }
 
-const itemData = [
-  {
-    title: 'slide1',
-    img: slide1,
-    rows: 1,
-    cols: 1,
-  },
-  {
-    title: 'slide2',
-    img: slide2,
-    rows: 1,
-    cols: 1,
-  },
-];
+
