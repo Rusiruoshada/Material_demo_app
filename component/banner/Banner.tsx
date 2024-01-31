@@ -21,7 +21,7 @@ function srcset(image: string, size: number, rows = 1, cols = 1) {
 export default function Banner(props:any) {
   return (
     <ImageList
-      sx={{ width: '100%', height: 200, columns:{xs:1,sm:1,md:2,lg:2}}}
+      sx={{ width: '100%', height: 200}}
       variant="quilted"
       rowHeight={'auto'}
       gap={0}
