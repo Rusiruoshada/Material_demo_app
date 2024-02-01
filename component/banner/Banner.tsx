@@ -17,16 +17,20 @@ function srcset(image: string, size: number, rows = 1, cols = 1) {
   };
 }
 
-interface Props {
-  bannerImages:
-  {
-    img: string,
+interface imageDetails{
+  img: any,
     title: string,
-  }
+    cols:number,
+    rows: number,
+}
+
+interface BannerProps {
+  bannerImages:imageDetails[],
+  item:imageDetails
 }
 
 
-export default function Banner(props:Props) {
+const Banner:React.FC<BannerProps> = ({bannerImages}) => {
   return (
     <ImageList
       sx={{ width: '100%', height: 200}}
@@ -34,7 +38,7 @@ export default function Banner(props:Props) {
       rowHeight={'auto'}
       gap={0}
     >
-      {props.bannerImages.map((item:any) => (
+      {bannerImages.map((item) => (
         <ImageListItem key={item.title} cols={item?.cols || 1} rows={item?.rows || 1}>
           <Image
             // {...srcset(item.img, 121, item.rows, item.cols)}
@@ -50,3 +54,4 @@ export default function Banner(props:Props) {
 }
 
 
+export default Banner;
