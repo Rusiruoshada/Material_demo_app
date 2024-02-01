@@ -17,8 +17,16 @@ function srcset(image: string, size: number, rows = 1, cols = 1) {
   };
 }
 
+interface Props {
+  bannerImages:
+  {
+    img: string,
+    title: string,
+  }
+}
 
-export default function Banner(props:any) {
+
+export default function Banner(props:Props) {
   return (
     <ImageList
       sx={{ width: '100%', height: 200}}
