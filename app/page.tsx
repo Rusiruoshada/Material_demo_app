@@ -10,8 +10,20 @@ import Banner from '../component/banner/Banner';
 import upperBannerSection1 from '../public/BannerSection1A.jpg';
 import upperBannerSection2 from '../public/BannerSection2A .jpg';
 
+interface itemDataInterface {
+  img: any,
+  title: string,
+  cols:number,
+  rows: number,
+};
 
-const itemData = [
+interface itemsInContainerInterface {
+  name:string,
+  icon: Element,
+}
+
+
+const itemData:itemDataInterface[] = [
   {
     title: 'slide1',
     img: upperBannerSection1,
@@ -27,7 +39,7 @@ const itemData = [
 ];
 
 export default function Home() {
-  const itemsInContainer = [
+  const itemsInContainer:itemsInContainerInterface[] = [
     { name: 'Delivery within 24Hours', icon: <IoMdTime /> },
     { name: 'Deliver in Doorstep', icon: <GrSend /> },
     { name: 'Freshness Guaranteed', icon: <FaRegCheckCircle /> },
